@@ -2,7 +2,7 @@ import os
 import glob
 import re
 
-root_dir = r'D:\experiment\deepbind\DeepBind-Pytorch\data\input\手动植入多模体实例的序列\output'
+root_dir = r'data\input\手动植入多模体实例的序列\output'
 
 sub_dirs = [os.path.join(root_dir, d) for d in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir, d))]
 
@@ -38,6 +38,6 @@ for sub_dir in sub_dirs:
             for row in merged_lines:
                 f.write('\t'.join(row) + '\n')
 
-        print(f"合并后的文件已保存到: {output_file}")
+        print(f"merged file save to: {output_file}")
 
 

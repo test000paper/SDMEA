@@ -64,9 +64,9 @@ class Chip():
 
     def openFile(self):
         train_dataset = []
-        # 将 gzip.open 改为 open
-        with open(self.file, 'r') as data:  # 读取 .seq 文件
-            next(data)  # 跳过表头
+
+        with open(self.file, 'r') as data:
+            next(data)
             reader = csv.reader(data, delimiter='\t')
             if not self.reverse_complemet_mode:
                 for row in reader:
@@ -121,11 +121,11 @@ def find_file_with_suffix(directory, suffix):
 
 chipseq_seq_path = find_file_with_suffix(base_dir, '_Stanford_AC.seq')
 if chipseq_seq_path is None:
-    raise FileNotFoundError(f"未找到以 '_Stanford_AC.seq' 结尾的文件，请检查目录: {base_dir}")
+    raise FileNotFoundError(f"No file ending with '_Stanford_AC.seq' was found，Please check the directory: {base_dir}")
 
 chipseq_test_seq_path = find_file_with_suffix(base_dir, '_Stanford_B.seq')
 if chipseq_test_seq_path is None:
-    raise FileNotFoundError(f"未找到以 '_Stanford_B.seq' 结尾的文件，请检查目录: {base_dir}")
+    raise FileNotFoundError(f"No file ending with '_Stanford_B.seq'was found，Please check the directory: {base_dir}")
 
 chipseq = Chip(chipseq_seq_path)
 
@@ -674,7 +674,7 @@ for number_models in range(6):
 
         if AUC_training > best_AUC:
             best_AUC = AUC_training
-            best_model_losses = train_losses  # 保存最佳模型的损失值
+            best_model_losses = train_losses
             state = {'conv': model.wConv, 'rect': model.wRect, 'wHidden': model.wHidden,
                      'wHiddenBias': model.wHiddenBias, 'wNeu': model.wNeu, 'wNeuBias': model.wNeuBias}
             # torch.save(state, 'result/MyModel_2.pth')
@@ -741,9 +741,8 @@ class Chip_test():
 
     def openFile(self):
         test_dataset = []
-        # 将 gzip.open 改为 open
         with open(self.file, 'r') as data:
-            next(data)  # 跳过表头
+            next(data)
             reader = csv.reader(data, delimiter='\t')
             if not self.reverse_complemet_mode:
                 for row in reader:

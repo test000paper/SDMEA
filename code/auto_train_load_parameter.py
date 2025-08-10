@@ -118,7 +118,7 @@ def find_files_with_suffix(directory, suffix):
         if file_name.endswith(suffix):
             files.append(os.path.join(directory, file_name))
     if not files:
-        raise FileNotFoundError(f"未找到以 '{suffix}' 结尾的文件，请检查目录: {directory}")
+        raise FileNotFoundError(f"No file ending with '{suffix}' was found，Please check the directory: {directory}")
     return files
 
 
@@ -639,7 +639,7 @@ with torch.no_grad():
         labels = target.cpu().numpy().reshape(output.shape[0])
 
         auc.append(metrics.roc_auc_score(labels, pred))
-    #
+
     AUC_training = np.mean(auc)
     print(AUC_training)
 
@@ -743,6 +743,6 @@ with torch.no_grad():
         f.write(f'Accuracy on test data = {ACC_test}\n')
         f.write(f'Specificity on test data = {SPEC_test}\n')
         f.write(f'Sensitivity on test data = {SENS_test}\n')
-    print(f"测试结果已保存到文件: {output_file_acc}")
+    print(f"test output save to file: {output_file_acc}")
 
 

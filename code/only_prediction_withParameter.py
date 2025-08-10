@@ -165,7 +165,7 @@ def save_predictions(predictions, output_file):
     with open(output_file, 'w') as f:
         for seq_id, pred_value in predictions:
             f.write(f"{seq_id}\t{pred_value:.4f}\n")
-    print(f"预测结果已保存到文件: {output_file}")
+    print(f"predict result save to: {output_file}")
 
 
 def main():

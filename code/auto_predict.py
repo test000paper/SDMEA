@@ -2,8 +2,8 @@ import os
 import subprocess
 
 
-base_dir = r"D:\experiment\deepbind\DeepBind-Pytorch\data\myExperiment"
-output_base_dir = r"D:\experiment\deepbind\DeepBind-Pytorch\data\output"  # 输出根目录
+base_dir = r"data\input\myExperiment"
+output_base_dir = r"data\output"  # 输出根目录
 
 tf_names = []
 model_names = []
@@ -49,9 +49,9 @@ for tf_name in tf_names:
 
             try:
                 subprocess.run(cmd_target, check=True)
-                print(f"{tf_name} 目标序列 在 {model_name} 特异性检测模型上 预测完成")
+                print(f"{tf_name} target sequence on {model_name} SD Model's predict finished")
             except subprocess.CalledProcessError as e:
-                print(f"{tf_name} 目标序列 在{model_name} 特异性检测模型上 运行出错：{e}")
+                print(f"{tf_name} target sequence on {model_name} SD Model's predict error：{e}")
 
             cmd_background = [
                 'python', 'only_prediction_withParameter.py',
@@ -63,6 +63,6 @@ for tf_name in tf_names:
 
             try:
                 subprocess.run(cmd_background, check=True)
-                print(f"{tf_name} 背景序列 在 {model_name} 特异性检测模型上 预测完成")
+                print(f"{tf_name} background sequence on {model_name} SD Model's predict finished")
             except subprocess.CalledProcessError as e:
-                print(f"{tf_name} 背景序列 在 {model_name} 特异性检测模型上 运行出错：{e}")
+                print(f"{tf_name} background sequence on {model_name} SD Model's predict error：{e}")

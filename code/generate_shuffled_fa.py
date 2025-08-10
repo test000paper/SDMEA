@@ -31,8 +31,8 @@ def shuffle_txt_sequences(input_txt, output_txt, seed=12345):
                 output_handle.write(f"{shuffled_sequence}\n")
 
 
-input_dir = "data/input_change/比例不同数据量不变/original"
-output_dir = "data/input_change/比例不同数据量不变/shuffled"
+input_dir = "data/input/比例不同数据量不变/original"
+output_dir = "data/input/比例不同数据量不变/shuffled"
 
 
 for tf_dir in os.listdir(input_dir):
@@ -49,5 +49,5 @@ for tf_dir in os.listdir(input_dir):
                 output_path = os.path.join(output_tf_dir, output_file_name)
 
                 shuffle_txt_sequences(input_path, output_path)
-                print(f"打乱后的序列已保存到: {output_path}")
+                print(f"shuffled sequence save to: {output_path}")
 

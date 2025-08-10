@@ -8,7 +8,7 @@ def get_motif_rank(statistics_file):
     return df[['motif_id', 'z_score', 'z_score_rank']]
 
 
-root_dir = r'D:\experiment\deepbind\DeepBind-Pytorch\data\input\不同背景信息数据\output'
+root_dir = r'data\input\不同背景信息数据\output'
 
 size_dirs = [os.path.join(root_dir, d) for d in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir, d))]
 

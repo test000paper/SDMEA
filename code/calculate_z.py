@@ -37,7 +37,7 @@ def compute_motif_statistics(target_file, background_file):
 
 
 # 定义根目录
-root_dir = r'D:\experiment\deepbind\DeepBind-Pytorch\data\input\比例变化数据量不变\output'
+root_dir = r'data\input\output'
 
 # 获取所有数据量子目录
 size_dirs = [os.path.join(root_dir, d) for d in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir, d))]
@@ -51,4 +51,4 @@ for size_dir in size_dirs:
         results_df = compute_motif_statistics(target_file, background_file)
         output_file = os.path.join(size_dir, f'{size}_motif_statistics.txt')
         results_df.to_csv(output_file, sep='\t', index=False)
-        print(f"统计结果已保存到: {output_file}")
+        print(f"statistics output save to: {output_file}")

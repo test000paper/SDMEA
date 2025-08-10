@@ -1,9 +1,9 @@
 import os
 import subprocess
 
-base_dir = r"D:\experiment\deepbind\DeepBind-Pytorch\data\myExperiment_change"
-output_base_dir = r"D:\experiment\deepbind\DeepBind-Pytorch\data\input_change\比例不同数据量不变\output"  # 输出根目录
-input_dir = r"D:\experiment\deepbind\DeepBind-Pytorch\data\input_change\比例不同数据量不变"  # 新的datasets目录
+base_dir = r"data\input\myExperiment"
+output_base_dir = r"data\output"
+input_dir = r"data\SD"
 
 original_dir = os.path.join(input_dir, "original")
 shuffled_dir = os.path.join(input_dir, "shuffled")
@@ -79,12 +79,12 @@ for tf in tf_names:
                 # 执行预测
                 try:
                     subprocess.run(cmd_target, check=True)
-                    print(f"{tf}/{percent} 目标序列在 {model_name} 模型预测完成")
+                    print(f"{tf}/{percent} target sequence on {model_name} SD Model's predict finished")
                 except subprocess.CalledProcessError as e:
-                    print(f"{tf}/{percent} 目标序列在 {model_name} 模型预测出错：{e}")
+                    print(f"{tf}/{percent} target sequence on {model_name} SD Model's predict error：{e}")
 
                 try:
                     subprocess.run(cmd_background, check=True)
-                    print(f"{tf}/{percent} 背景序列在 {model_name} 模型预测完成")
+                    print(f"{tf}/{percent} background sequence on {model_name} SD Model's predict finished")
                 except subprocess.CalledProcessError as e:
-                    print(f"{tf}/{percent} 背景序列在 {model_name} 模型预测出错：{e}")
+                    print(f"{tf}/{percent} background sequence on {model_name} SD Model's predict error：{e}")
